@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="zxx">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Gym Template">
+    <meta name="keywords" content="Gym, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Classes</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,600,700&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/flaticon.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/barfiller.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/slicknav.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/style3.css' %}" type="text/css">
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Offcanvas Menu Section Begin -->
+    <div class="offcanvas-menu-overlay"></div>
+    <div class="offcanvas-menu-wrapper">
+        <div class="canvas-close">
+            <i class="fa fa-close"></i>
+        </div>
+        <div class="canvas-search search-switch">
+            <i class="fa fa-search"></i>
+        </div>
+        <nav class="canvas-menu mobile-menu">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li class="active"><a href="/classes/">Classes</a></li>
+            <li><a href="/services/">Services</a></li>
+            <li><a href="/team/">Our team</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="/subscribe/">My page</a>
+                <ul class="dropdown">
+                    <li><a href="/report/">Report</a></li>
+                    <li><a href="{% url 'common:logout' %}">{{ user.username }} Sign-out</a></li>
+                </ul>                            
+            </li>
+            {% else %}
+            <li><a href="">Sign us</a>
+                <ul class="dropdown">
+                    <li><a href="{% url 'common:login' %}">Sign-in</a></li>
+                    <li><a href="{% url 'common:signup' %}">Sign-up</a></li>
+                </ul>
+            </li>
+            {% endif %}
+          </ul>
+        </nav>
+        <div id="mobile-menu-wrap"></div>
+        <div class="canvas-social">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-youtube-play"></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+        </div>
+    </div>
+    <!-- Offcanvas Menu Section End -->
+
+        <!-- Header Section Begin -->
+        <header class="header-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="logo">
+                            <a href="/">
+                                <img src="{% static 'img/re_icon.png' %}" alt="" width="38px" height="38px">
+                                <h3 style="color: white; font-size: 35px; vertical-align: bottom;" >H<strong style="color: #f36100;">AI</strong>T</h3>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <nav class="nav-menu">
+                            <ul>
+                                <li><a href="/">Home</a></li>
+                                <li class="active"><a href="/classes/">Classes</a></li>
+                                <li><a href="/services/">Services</a></li>
+                                <li><a href="/team/">Our team</a></li>
+                                {% if user.is_authenticated %}
+                                <li><a href="/subscribe/">My page</a>
+                                    <ul class="dropdown">
+                                        <li><a href="/report/">Report</a></li>
+                                        <li><a href="{% url 'common:logout' %}">{{ user.username }} Sign-out</a></li>
+                                    </ul>                            
+                                </li>
+                                {% else %}
+                                <li><a href="">Sign us</a>
+                                    <ul class="dropdown">
+                                        <li><a href="{% url 'common:login' %}">Sign-in</a></li>
+                                        <li><a href="{% url 'common:signup' %}">Sign-up</a></li>
+                                    </ul>
+                                </li>
+                                {% endif %}
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="top-option">
+                            <div class="to-search search-switch">
+                                <i class="fa fa-search"></i>
+                            </div>
+                            <div class="to-social">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-youtube-play"></i></a>
+                                <a href="#"><i class="fa fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="canvas-open">
+                    <i class="fa fa-bars"></i>
+                </div>
+            </div>
+        </header>
+        <!-- Header End -->
+
+    <!-- Breadcrumb Section Begin -->
+    <section class="breadcrumb-section set-bg" data-setbg="{% static 'img/new_index/breadcrumb-bg.jpg' %}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="breadcrumb-text">
+                        <h2>Classes</h2>
+                        <div class="bt-option">
+                            <a href="/">Home</a>
+                            <span>Classes</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Section End -->
+
+    <!-- Services Section Begin -->
+    <section class="services-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <span>What can I do?</span>
+                        <h2>운동 소개</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 order-lg-0 col-md-6 p-0">
+                    <div class="ss-pic">
+                        <img src="{% static 'img/classes_resize_img/lunge.png' %}" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-3 order-lg-1 col-md-6 p-0">
+                    <div class="ss-text">
+                        <h4>Lunge</h4>
+                        <h5 style="color: rgb(239, 245, 189);">Lv.1</h5>
+                        <p>하체운동의 대명사로 전신의 균형감각, 허리 및 코어 강화에 효과가 뛰어난 운동입니다. 다리 한 쪽을 앞으로 내밀며 무릎을 굽히는 자세로 부상 방지를 위해 무릎은 90도 각도를 유지해주세요!</p>
+                        <!-- <a href="#">Explore</a> -->
+                    </div>
+                </div>
+                <div class="col-lg-3 order-lg-2 col-md-6 p-0">
+                    <div class="ss-pic">
+                        <img src="{% static 'img/classes_resize_img/squat.png' %}" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-3 order-lg-3 col-md-6 p-0">
+                    <div class="ss-text">
+                        <h4>Squat</h4>
+                        <h5 style="color: rgb(231, 224, 121);">Lv.2</h5>
+                        <p>웨이트 트레이닝을 대표하는 3대 운동 중 하나로 고관절을 굽혔다 펴는 동작을 반복해 하체 근육을 성장시켜 주며, 성기능 향상, 체력, 유연성 향상에 큰 효과가 있습니다. 관절 각도에 신경쓰세요!</p>
+                        <!-- <a href="#">Explore</a> -->
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 order-lg-6 col-md-6 p-0">
+                    <div class="ss-pic">
+                        <img src="{% static 'img/classes_resize_img/slr.png' %}" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-3 order-lg-7 col-md-6 p-0">
+                    <div class="ss-text">
+                        <h4>Lateral Raise</h4>
+                        <h5 style="color: rgb(171, 184, 54);">Lv.3</h5>
+                        <p>측면 삼각근을 단련하는 운동입니다. 
+                            양손에 덤벨을 들고 하지만 케이블이나 탄력있는 밴드로도 대체할 수 있습니다.
+                             부상 방지를 위해 낮은 무게로 30회 정도 수행하세요!</p>
+                        <!-- <a href="#">Explore</a> -->
+                    </div>
+                </div>
+                <div class="col-lg-3 order-lg-4 col-md-6 p-0">
+                    <div class="ss-pic">
+                        <img src="{% static 'img/classes_resize_img/handstand.png' %}" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-3 order-lg-5 col-md-6 p-0">
+                    <div class="ss-text">
+                        <h4>Hand Stand</h4>
+                        <h5 style="color: rgb(158, 124, 52);">Lv.4</h5>
+                        <p>물구나무서기는 근력자체가 엄청나게 뛰어나야하는 동작은 아니지만 아무리 운동신경이 좋아도 핸드스탠드를 해보지 않았다면 절대 한번에 해낼 수 없습니다.</p>
+                        <!-- <a href="#">Explore</a> -->
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 order-lg-8 col-md-6 p-0">
+                    <div class="ss-pic">
+                        <img src="{% static 'img/classes_resize_img/dragonflag.jpg' %}" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-3 order-lg-9 col-md-6 p-0">
+                    <div class="ss-text">
+                        <h4>Dragon Flag</h4>
+                        <h5 style="color: rgb(206, 102, 70);">Lv.5</h5>
+                        <p>이소룡이 고안한 복근 운동 중 난이도 최상급에 속하며, 단순 복근운동이라기보단 상체 전반을 사용하는 운동입니다. 무리할 경우 허리를 크게 다칠 수 있기 때문에 숙련되지 않은 상태에서는 함부로 따라하지 마세요!</p>
+                        <!-- <a href="#">Explore</a> -->
+                    </div>
+                </div>
+                <div class="col-lg-3 order-lg-10 col-md-6 p-0">
+                    <div class="ss-pic">
+                        <img src="{% static 'img/classes_resize_img/planche.png' %}" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-3 order-lg-11 col-md-6 p-0">
+                    <div class="ss-text">
+                        <h4>Planche</h4>
+                        <h5 style="color: rgb(194, 34, 34);">Lv.6</h5>
+                        <p>맨몸 운동의 끝판왕이자 최종보스로 난이도는 일반인이 시도해 볼 수 있는 동작 중에서 가장 어려운 축에 속하므로 시간을 투자해 꾸준히 연습해야 합니다.</p>
+                        <!-- <a href="#">Explore</a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Services Section End -->
+
+
+    <!-- Get In Touch Section Begin -->
+    <div class="gettouch-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="gt-text">
+                        <i class="fa fa-map-marker"></i>
+                        <p>경기 고양시 덕양구 화신로260번길 74<br> KR 화정버스터미널 2층<br/></p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="gt-text">
+                        <i class="fa fa-mobile"></i>
+                        <ul>
+                            <li>080-1234-5678</li>
+                            <li>080-8765-4321</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="gt-text email">
+                        <i class="fa fa-envelope"></i>
+                        <p>cs@HomeAITrainer.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Get In Touch Section End -->
+
+    <!-- Footer Section Begin -->
+    <section class="footer-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="fs-about">
+                        <div class="fa-logo">
+                            <a href="/">
+                                <img src="{% static 'img/re_icon.png' %}" alt="" width="38px" height="38px">
+                                <h3 style="color: white; font-size: 35px; vertical-align: bottom;" >H<strong style="color: #f36100;">AI</strong>T</h3>
+                            </a>
+                        </div>
+                        <p>HAIT는 어디에서나 AI Personal Trainer와 함께 운동을 즐길 수 있는 서비스입니다.
+                            HAIT를 구독하고, 레벨 업의 즐거움을 느껴보세요.
+                        </p>
+                        <div class="fa-social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-youtube-play"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa  fa-envelope-o"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                    <div class="fs-widget">
+                        <h4>Useful links</h4>
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/classes/">Classes</a></li>
+                            <li><a href="/services/">Services</a></li>
+                            <li><a href="/team/">Our Team</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                    <div class="fs-widget">
+                        <h4>Support</h4>
+                        <ul>
+                            <li><a href="/404/">Sign-in</a></li>
+                            <li><a href="/404/">My Page</a></li>
+                            <li><a href="/subscribe/">Sign-up</a></li>
+                            <li><a href="/report/">Report</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="fs-widget">
+                        <h4>Tips & Guides</h4>
+                        <div class="fw-recent">
+                            <h6><a href="#">Physical fitness may help prevent depression, anxiety</a></h6>
+                            <ul>
+                                <li>3 min read</li>
+                                <li>20 Comment</li>
+                            </ul>
+                        </div>
+                        <div class="fw-recent">
+                            <h6><a href="#">Fitness: The best exercise to lose belly fat and tone up...</a></h6>
+                            <ul>
+                                <li>3 min read</li>
+                                <li>20 Comment</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="copyright-text">
+                        <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> KFQ 2021 TEAM 5<i class="fa fa-heart" aria-hidden="true"></i> by F5
+                            &nbsp;&nbsp;/ This template is made with  by Colorlib<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer Section End -->
+
+    <!-- Search model Begin -->
+    <div class="search-model">
+        <div class="h-100 d-flex align-items-center justify-content-center">
+            <div class="search-close-switch">+</div>
+            <form class="search-model-form">
+                <input type="text" id="search-input" placeholder="Search here.....">
+            </form>
+        </div>
+    </div>
+    <!-- Search model end -->
+
+    <!-- Js Plugins -->
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'js/masonry.pkgd.min.js' %}"></script>
+    <script src="{% static 'js/jquery.barfiller.js' %}"></script>
+    <script src="{% static 'js/jquery.slicknav.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+{% load static %}
+{% csrf_token %}
+<html lang="ko">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Exercise</title>
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+        <link rel="icon" type="image/x-icon" href="{% static 'img/icon.png' %}">
+        <style>
+        html,body,div,video {
+            margin:0;
+            padding:0;
+        }
+        body {
+            padding:0px, 0px, 0px, 0px; 
+            margin:0px, 0px, 0px, 0px; 
+            overflow:auto; 
+            background-color:#000; 
+        }
+        </style>
+        <script>
+            var i = 1;
+            // HTML5 video
+            if(window.addEventListener){
+                window.addEventListener('load', function(){
+                    if(window.HTMLVideoElement){
+                        var myVideo = document.getElementById('myVideo');
+                        myVideo.addEventListener("ended", function(){
+                            // 동영상 재생이 끝나면 실행될 코드\
+                            if (i < 2){
+                                i = i + 1;
+                                if(myVideo.canPlayType("video/mp4")){
+                                    // myVideo.src =  + "/video/" + i +".mp4'";
+                                    myVideo.src = "/static/video/2.mp4"
+                                }
+                                myVideo.play();
+                                iter();
+                            }
+                        });
+                    }
+                }, false);
+            }
+        </script>
+    </head>
+ 
+    <body>
+        <!-- 반복 횟수 표시 -->
+        <div id=iter>Iteration:
+            <span id="iteration"></span>
+        </div>
+        <!-- 운동 영상 송출-->
+        <video id='myVideo' width="940" height="650" autoplay muted> 
+            <source src="{% static 'video/1.mp4' type='video/mp4' %}" >
+        </video>
+        <audio src="{%static 'video/start.mp3' %}" autoPlay ></audio>
+        <!-- Cam 영상 관련 iframe-->
+        <iframe src="http://127.0.0.1:5000" width="940" height="650" frameborder="0" scrolling='no'></iframe>
+        <!-- Chart 관련 iframe-->
+        <iframe src="http://127.0.0.1:5000/chart" width="1885" height="250" frameborder="0"></iframe>
+    </body>
+    
+        <!-- Core theme JS-->
+        <script src="{% static 'js/scripts.js' %}"></script>
+        <script src="{% static 'js/loop.js' %}"></script>
+</html>
+     

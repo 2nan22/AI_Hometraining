@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="zxx">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Gym Template">
+    <meta name="keywords" content="Gym, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Report</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,600,700&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <!-- <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css"> -->
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/flaticon.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/barfiller.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/slicknav.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/style3.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/styles2.css' %}" type="text/css">
+
+    <!-- js-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Offcanvas Menu Section Begin -->
+    <div class="offcanvas-menu-overlay"></div>
+    <div class="offcanvas-menu-wrapper">
+        <div class="canvas-close">
+            <i class="fa fa-close"></i>
+        </div>
+        <div class="canvas-search search-switch">
+            <i class="fa fa-search"></i>
+        </div>
+        <nav class="canvas-menu mobile-menu">
+          <ul>  
+            <li><a href="/">Home</a></li>
+            <li><a href="/classes/">Classes</a></li>
+            <li><a href="/services/">Services</a></li>
+            <li><a href="/team/">Our team</a></li>
+            {% if user.is_authenticated %}
+            <li class="active"><a href="/subscribe/">My page</a>
+                <ul class="dropdown">
+                    <li><a href="/report/">Report</a></li>
+                    <li><a href="{% url 'common:logout' %}">{{ user.username }} Sign-out</a></li>
+                </ul>                            
+            </li>
+            {% else %}
+            <li class="active"><a href="">Sign us</a>
+                <ul class="dropdown">
+                    <li><a href="{% url 'common:login' %}">Sign-in</a></li>
+                    <li><a href="{% url 'common:signup' %}">Sign-up</a></li>
+                </ul>
+            </li>
+            {% endif %}
+          </ul>
+        </nav>
+        <div id="mobile-menu-wrap"></div>
+        <div class="canvas-social">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-youtube-play"></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+        </div>
+    </div>
+    <!-- Offcanvas Menu Section End -->
+
+    <!-- Header Section Begin -->
+    <header class="header-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="logo">
+                        <a href="/">
+                            <img src="{% static 'img/re_icon.png' %}" alt="" width="40px" height="43px">
+                            <h3 style="color: white; font-size: 38px; vertical-align: bottom;" >H<strong style="color: #f36100;">AI</strong>T</h3>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <nav class="nav-menu">
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/classes/">Classes</a></li>
+                            <li><a href="/services/">Services</a></li>
+                            <li><a href="/team/">Our team</a></li>
+                            {% if user.is_authenticated %}
+                            <li class="active"><a href="/subscribe/">My page</a>
+                                <ul class="dropdown">
+                                    <li><a href="/report/">Report</a></li>
+                                    <li><a href="{% url 'common:logout' %}">{{ user.username }} Sign-out</a></li>
+                                </ul>                            
+                            </li>
+                            {% else %}
+                            <li class="active"><a href="">Sign us</a>
+                                <ul class="dropdown">
+                                    <li><a href="{% url 'common:login' %}">Sign-in</a></li>
+                                    <li><a href="{% url 'common:signup' %}">Sign-up</a></li>
+                                </ul>
+                            </li>
+                            {% endif %}
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-lg-3">
+                    <div class="top-option">
+                        <div class="to-search search-switch">
+                            <i class="fa fa-search"></i>
+                        </div>
+                        <div class="to-social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-youtube-play"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="canvas-open">
+                <i class="fa fa-bars"></i>
+            </div>
+        </div>
+    </header>
+    <!-- Header End -->
+
+<!-- Reporting Section Begin -->
+<section class="pricing-section spad" >
+    <br><br><br><br><br>
+    <!-- <div id="layoutSidenav_content"> -->
+        <!-- <main> -->
+            <div class="container-fluid px-4">
+                <div class="row">
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card bg-primary text-white mb-4">
+                            <div class="card-body" style="text-align: center;">
+                                <b>운동명</b>
+                            </div>
+                            <div class="card-footer" style="text-align: center;">
+                                <h4>Squat</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card bg-warning text-white mb-4">
+                            <div class="card-body" style="text-align: center;">
+                                <b>총 점수</b>
+                            </div>
+                            <div class="card-footer" style="text-align: center;">
+                                <h4>{{ total }}</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card bg-success text-white mb-4">
+                            <div class="card-body" style="text-align: center;">
+                                <b>운동일시</b>
+                            </div>
+                            <div class="card-footer" style="text-align: center;">
+                                <h4>{{ exdata_ }}</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card bg-danger text-white mb-4">
+                            <div class="card-body" style="text-align: center;">
+                                <b>소모한 칼로리</b>
+                            </div>
+                            <div class="card-footer" style="text-align: center;">
+                                <h4>8kcal</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-6">
+                        <div class="card mb-4">
+                            <div class="card-header" style="text-align: center;">
+                                구간별 점수
+                            </div>
+                            <div class="card-body"><canvas id="myAreaChart" width="590" height="130"></canvas></div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6">
+                        <div class="card mb-4">
+                            <div class="card-header" style="text-align: center;">
+                                <i class="fas fa-chart-bar me-1"></i>
+                                월별 평균 점수
+                            </div>
+                            <div class="card-body"><canvas id="myBarChart" width="590" height="130"></canvas></div>
+                        </div>
+                    </div>
+                 
+                </div>
+                <div class="row">
+                    <div class="col-xl-4">
+                        <div class="card mb-4">
+                            <div class="card-header" style="text-align: center;">
+                                <i class="fas fa-chart-bar me-1"></i>
+                                신체 부위 별 점수
+                            </div>
+                            <div class="card-body">
+                                <canvas id="radar-chart" width="590" height="491"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-8">
+                        <div class="card mb-4">
+                            <div class="card-header" style="text-align: center;">
+                                <i class="fas fa-chart-bar me-1"></i>
+                                당신의 신체 분석 결과는 ..
+                            </div>
+                            <div class="card-body" width: 882; height: 480px;>
+                                <!-- <h3>Head</h3>
+                                <p>Head 관련 ~~~~</p> -->
+                                <h3 style='color:rgba(43,63,107,1);'>Shoulder</h3>
+                                <p style="margin-left: 20px; font-size: 24px; color: #44403d;">
+                                    <img src="{% static 'img/report_icon/shoulder.png' %}">
+                                    &nbsp;&nbsp;
+                                    <!-- 당신의 어깨는 문제가 있네요 -->
+                                    {{ shoulder_ment }}
+                                </p>
+                                <h3 style='color:rgba(43,63,107,1);'>Arm</h3>
+                                <p style="margin-left: 20px; font-size: 24px; color: #44403d;">
+                                    <img src="{% static 'img/report_icon/arm.png' %}">
+                                    &nbsp;&nbsp;
+                                    <!-- 생각보다 팔은 괜찮네요 -->
+                                    {{arm_ment}}
+                                </p>
+                                <h3 style='color:rgba(43,63,107,1);'>Waist</h3>
+                                <p style="margin-left: 20px; font-size: 24px; color: #44403d;">
+                                    <img src="{% static 'img/report_icon/waist.png' %}">
+                                    &nbsp;&nbsp;
+                                    <!-- 허리는 나이에 비해 좀 상했네요 -->
+                                    {{waist_ment}}
+                                </p>
+                                <h3 style='color:rgba(43,63,107,1);'>Leg</h3>
+                                <p style="margin-left: 20px; font-size: 24px; color: #44403d;">
+                                    <img src="{% static 'img/report_icon/leg.png' %}">
+                                    &nbsp;&nbsp;
+                                    <!-- 다리는 왜 그러세요 -->
+                                    {{leg_ment}}
+                                </p>
+                                <h3 style="color: tomato;"><strong>HAIT's recommend</strong></h3>
+                                <h4 style="margin-left: 20px; font-size: 24px; ">
+                                    <img src="{% static 'img/report_icon/total.png' %}">
+                                    &nbsp;&nbsp;<strong style="color: tomato;">{{total_ment}}</strong> 
+                                    </h4>
+                                <p style="color: #44403d;"><strong>Tip :</strong> &nbsp;
+                                    운동에 집중해야 몸의 밸런스를 잡고 안정적인 운동을 할 수 있습니다.
+                                </p>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card mb-4">
+                            
+
+                            <div class="card-header" style="text-align: center;">
+                                운동 자세 피드백&nbsp;&nbsp;(Posture Feedback)
+                            </div>
+                            
+                            <div class="card-body">
+
+                                <div class="row">
+                                    
+                                    <div class="ts-slider owl-carousel">
+                                        {% for x in index %}
+                                        <div class="col-lg-4">
+                                            <div class="ts-item set-bg" data-setbg="{% get_static_prefix %}{{exdata}}img/{{x}}.jpg">
+                                                <div class="ts_text">
+                                                    <!-- Frame 별 점수 / 위의 이미지 인덱스와 일치하는 점수 생성 -->
+                                                    <h4 id=sco{{x}}>
+                                                    </h4>
+                                                    <script>
+                                                    var x = "{{x}}";
+                                                    var score = "{{score}}";
+                                                    var score_sl = score.slice(1, -1)
+                                                    var score_ar = score_sl.split(',').map(function(item) {
+                                                        return parseInt(item, 10);
+                                                        });
+                                                    var final_score = score_ar[x]
+                                                    document.getElementById('sco{{x}}').innerText = final_score
+                                                    </script>
+                                                    <span>Score</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                    
+                                </div>
+
+                            </div>
+                            
+
+                        </div>
+                    </div>
+                    <div class="col-xl-12">
+                        <div class="card mb-4">
+                            <div class="card-header" style="text-align: center;">
+                                내 운동 기록&nbsp;&nbsp;(My records)
+                            </div>
+                            <div class="card-body">
+                            <table id="datatablesSimple">
+                                <thead>
+                                    <tr>
+                                        <th><span style="color: #f36100;">실시한 운동</span></th>
+                                        <th><span style="color: #f36100;">내 점수</span></th>
+                                        <th><span style="color: #f36100;">운동일시</span></th>
+                                        <th><span style="color: #f36100;">총 세트 수</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>SQUAT</td>
+                                        <td>61</td>
+                                        <td>2011/04/25/13:00</td>
+                                        <td>08</td>
+                                    </tr>
+                                    <tr>
+                                        <td>LUNGE</td>
+                                        <td>63</td>
+                                        <td>2011/07/25/13:00</td>
+                                        <td>07</td>
+                                    </tr>
+                                    <tr>
+                                        <td>SQUAT</td>
+                                        <td>66</td>
+                                        <td>2009/01/12/13:00</td>
+                                        <td>02</td>
+                                    </tr>
+                                    <tr>
+                                        <td>LUNGE</td>
+                                        <td>22</td>
+                                        <td>2012/03/29/13:00</td>
+                                        <td>06</td>
+                                    </tr>
+                                    <tr>
+                                        <td>SQUAT</td>
+                                        <td>33</td>
+                                        <td>2008/11/28/13:00</td>
+                                        <td>02</td>
+                                    </tr>
+                                    <tr>
+                                        <td>SIDE LATERAL RAISE</td>
+                                        <td>61</td>
+                                        <td>2012/12/02/13:00</td>
+                                        <td>04</td>
+                                    </tr>
+                                    <tr>
+                                        <td>SQUAT</td>
+                                        <td>59</td>
+                                        <td>2012/08/06/13:00</td>
+                                        <td>08</td>
+                                    </tr>
+                                    <tr>
+                                        <td>LUNGE</td>
+                                        <td>55</td>
+                                        <td>2010/10/14/13:00</td>
+                                        <td>06</td>
+                                    </tr>
+                                    <tr>
+                                        <td>LUNGE</td>
+                                        <td>55</td>
+                                        <td>2010/10/14/13:00</td>
+                                        <td>04</td>
+                                    </tr>             
+                                    <tr>
+                                        <td>LUNGE</td>
+                                        <td>55</td>
+                                        <td>2010/10/14/13:00</td>
+                                        <td>05</td>
+                                    </tr>             
+                                    <tr>
+                                        <td>LUNGE</td>
+                                        <td>55</td>
+                                        <td>2010/10/14/13:00</td>
+                                        <td>02</td>
+                                    </tr>             
+                                    <tr>
+                                        <td>LUNGE</td>
+                                        <td>55</td>
+                                        <td>2010/10/14/13:00</td>
+                                        <td>08</td>
+                                    </tr>             
+                                    <tr>
+                                        <td>LUNGE</td>
+                                        <td>55</td>
+                                        <td>2010/10/14/13:00</td>
+                                        <td>05</td>
+                                    </tr>                                                                                 
+                                    <tr>
+                                        <td>LUNGE</td>
+                                        <td>55</td>
+                                        <td>2010/10/14/13:00</td>
+                                        <td>03</td>
+                                    </tr>             
+                                    <tr>
+                                        <td>LUNGE</td>
+                                        <td>55</td>
+                                        <td>2010/10/14/13:00</td>
+                                        <td>04</td>
+                                    </tr>             
+                                    <tr>
+                                        <td>LUNGE</td>
+                                        <td>55</td>
+                                        <td>2010/10/14/13:00</td>
+                                        <td>02</td>
+                                    </tr>             
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+           </main>
+    </div> 
+    <!-- 버튼 생성-->
+    <div style="text-align: center;">
+        <a class='btn btn-outline-light' href="/main/" >한 세트 더!</a>      
+        <a class='btn btn-outline-light' href="/report/">오늘은 여기까지</a>
+    </div> 
+</section>
+<!-- Reporting Section End -->
+
+
+<!-- Get In Touch Section Begin -->
+<div class="gettouch-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="gt-text">
+                    <i class="fa fa-map-marker"></i>
+                    <p>경기도 고양시 덕양구 화정동 화신로260번길 74 KR 화정버스터미널 2층<br/></p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="gt-text">
+                    <i class="fa fa-mobile"></i>
+                    <ul>
+                        <li>080-1234-5678</li>
+                        <li>080-8765-4321</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="gt-text email">
+                    <i class="fa fa-envelope"></i>
+                    <p>cs@HomeAITrainer.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Get In Touch Section End -->
+
+<!-- Footer Section Begin -->
+<section class="footer-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="fs-about">
+                    <div class="fa-logo">
+                        <a href="/">
+                            <img src="{% static 'img/re_icon.png' %}" alt="" width="38px" height="38px">
+                            <h3 style="color: white; font-size: 35px; vertical-align: bottom;" >H<strong style="color: #f36100;">AI</strong>T</h3>
+                        </a>
+                    </div>
+                    <p>HAIT는 어디에서나 AI Personal Trainer와 함께 운동을 즐길 수 있는 서비스입니다.
+                        HAIT를 구독하고, 레벨 업의 즐거움을 느껴보세요.
+                    </p>
+                    <div class="fa-social">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-youtube-play"></i></a>
+                        <a href="#"><i class="fa fa-instagram"></i></a>
+                        <a href="#"><i class="fa  fa-envelope-o"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-3 col-sm-6">
+                <div class="fs-widget">
+                    <h4>Useful links</h4>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/classes/">Classes</a></li>
+                        <li><a href="/services/">Services</a></li>
+                        <li><a href="/team/">Our Team</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-3 col-sm-6">
+                <div class="fs-widget">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="/404/">Sign-in</a></li>
+                        <li><a href="/404/">My Page</a></li>
+                        <li><a href="/subscribe/">Sign-up</a></li>
+                        <li><a href="/report/">Report</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="fs-widget">
+                    <h4>Tips & Guides</h4>
+                    <div class="fw-recent">
+                        <h6><a href="#">Physical fitness may help prevent depression, anxiety</a></h6>
+                        <ul>
+                            <li>3 min read</li>
+                            <li>20 Comment</li>
+                        </ul>
+                    </div>
+                    <div class="fw-recent">
+                        <h6><a href="#">Fitness: The best exercise to lose belly fat and tone up...</a></h6>
+                        <ul>
+                            <li>3 min read</li>
+                            <li>20 Comment</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="copyright-text">
+                    <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> KFQ 2021 TEAM 5<i class="fa fa-heart" aria-hidden="true"></i> by F5 
+                        &nbsp;&nbsp;/ This template is made with  by Colorlib<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Footer Section End -->
+
+<!-- Search model Begin -->
+<div class="search-model">
+    <div class="h-100 d-flex align-items-center justify-content-center">
+        <div class="search-close-switch">+</div>
+        <form class="search-model-form">
+            <input type="text" id="search-input" placeholder="Search here.....">
+        </form>
+    </div>
+</div>
+<!-- Search model end -->
+
+
+<script>
+    var radar_chart = '{{radar_chart}}';
+    var line_chart = '{{line_chart}}'; 
+</script>
+
+<!-- System.currentTimeMillis() -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="{% static 'js/scripts2.js' %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+<script src="{% static 'js/chart-area-demo.js' %}"></script>
+<script src="{% static 'js/chart-bar-demo.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+<script src="{% static 'js/datatables-simple-demo.js' %}"></script>
+
+<!-- Bootstrap core JS-->
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script> -->
+
+<!-- Js Plugins -->
+<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'js/radar_chart.js' %}"></script>
+<!-- <script src="{% static 'js/bootstrap.min.js' %}"></script> -->
+<script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+<script src="{% static 'js/masonry.pkgd.min.js' %}"></script>
+<script src="{% static 'js/jquery.barfiller.js' %}"></script>
+<script src="{% static 'js/jquery.slicknav.js' %}"></script>
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+
+
+
+</body>
+
+</html>
